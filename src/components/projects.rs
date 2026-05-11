@@ -1,0 +1,140 @@
+use leptos::prelude::*;
+
+struct Project {
+    name: &'static str,
+    description: &'static str,
+    tech: Vec<&'static str>,
+    url: &'static str,
+    stars: u32,
+}
+
+fn render_project_card(project: Project) -> impl IntoView {
+    view! {
+        <div class="project-card">
+            <div class="project-header">
+                <h3>{project.name}</h3>
+                <span class="project-stars">
+                    {format!("★ {}", project.stars)}
+                </span>
+            </div>
+            <p class="project-desc">{project.description}</p>
+            <div class="project-tech">
+                {project
+                    .tech
+                    .into_iter()
+                    .map(|t| view! { <span class="tech-tag">{t}</span> })
+                    .collect_view()}
+            </div>
+            <a
+                class="project-link"
+                href=project.url
+                target="_blank"
+                rel="noopener"
+            >
+                "View on GitHub →"
+            </a>
+        </div>
+    }
+}
+
+#[component]
+pub fn Projects() -> impl IntoView {
+    let (active_tab, set_active_tab) = signal("rust");
+
+    let rust_projects = vec![
+        Project {
+            name: "oxide-http1.1",
+            description: "A fully functional multithreaded HTTP/1.1 server built from scratch in Rust. Features routing, gzip compression, and thread pooling.",
+            tech: vec!["Rust", "Networking", "Multithreading"],
+            url: "https://github.com/YeabsiraShimelis/oxide-http1.1",
+            stars: 9,
+        },
+        Project {
+            name: "CPU Emulator",
+            description: "A CHIP-8 emulator written in Rust with manual instruction loading. Dive deep into how CPUs actually execute instructions.",
+            tech: vec!["Rust", "Emulation", "Low-level"],
+            url: "https://github.com/YeabsiraShimelis/CPU-emulator",
+            stars: 5,
+        },
+        Project {
+            name: "Multithreaded Web Server",
+            description: "A concurrent web server implementation in Rust, handling multiple connections with a custom thread pool.",
+            tech: vec!["Rust", "Concurrency", "TCP"],
+            url: "https://github.com/YeabsiraShimelis/Multithreaded-web-server-with-RUST",
+            stars: 4,
+        },
+    ];
+
+    let ts_projects = vec![
+        Project {
+            name: "Landlords House Rental",
+            description: "A full-stack house rental platform connecting landlords and tenants with real-time features.",
+            tech: vec!["TypeScript", "Node.js", "MongoDB"],
+            url: "https://github.com/YeabsiraShimelis/Landlords-house-rental",
+            stars: 5,
+        },
+        Project {
+            name: "World Wise",
+            description: "Single page application with an interactive world map that tracks your travel footsteps across the globe.",
+            tech: vec!["TypeScript", "React", "Leaflet"],
+            url: "https://github.com/YeabsiraShimelis/world-wise",
+            stars: 3,
+        },
+    ];
+
+    let rust_cards = rust_projects
+        .into_iter()
+        .map(render_project_card)
+        .collect_view();
+
+    let ts_cards = ts_projects
+        .into_iter()
+        .map(render_project_card)
+        .collect_view();
+
+    view! {
+        <section id="projects" class="projects">
+            <h2 class="section-title">"Projects"</h2>
+
+            <div class="project-tabs">
+                <button
+                    class="tab-btn"
+                    class:active=move || active_tab.get() == "rust"
+                    on:click=move |_| set_active_tab.set("rust")
+                >
+                    "🦀 Rust"
+                </button>
+                <button
+                    class="tab-btn"
+                    class:active=move || active_tab.get() == "typescript"
+                    on:click=move |_| set_active_tab.set("typescript")
+                >
+                    "TS TypeScript"
+                </button>
+            </div>
+
+            <div class="projects-grid" style:display=move || {
+                if active_tab.get() == "rust" { "grid" } else { "none" }
+            }>
+                {rust_cards}
+            </div>
+
+            <div class="projects-grid" style:display=move || {
+                if active_tab.get() == "typescript" { "grid" } else { "none" }
+            }>
+                {ts_cards}
+            </div>
+
+            <div class="projects-more">
+                <a
+                    href="https://github.com/YeabsiraShimelis"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-outline"
+                >
+                    "See All 57+ Repos →"
+                </a>
+            </div>
+        </section>
+    }
+}
