@@ -67,16 +67,30 @@ pub fn Projects() -> impl IntoView {
 
     let ts_projects = vec![
         Project {
+            name: "oxide.js",
+            description: "A TypeScript backend framework built directly on Node's HTTP module. Express-like DX with a cleaner ctx-based API, built-in middleware, WebSocket support, and rate limiting.",
+            tech: vec!["TypeScript", "Node.js", "WebSocket"],
+            url: "https://github.com/Yeabsirashimelis/oxide.js",
+            stars: 0,
+        },
+        Project {
+            name: "Top Tutor",
+            description: "Full-stack tutoring platform with a backend API and instructor dashboard for managing courses and students.",
+            tech: vec!["TypeScript", "Node.js", "React"],
+            url: "https://github.com/YeabsiraShimelis/top-tutor-backend-and-instructor-dashboard",
+            stars: 3,
+        },
+        Project {
             name: "Landlords House Rental",
             description: "A full-stack house rental platform connecting landlords and tenants with real-time features.",
-            tech: vec!["TypeScript", "Node.js", "MongoDB"],
+            tech: vec!["JavaScript", "Node.js", "MongoDB"],
             url: "https://github.com/YeabsiraShimelis/Landlords-house-rental",
             stars: 5,
         },
         Project {
             name: "World Wise",
             description: "Single page application with an interactive world map that tracks your travel footsteps across the globe.",
-            tech: vec!["TypeScript", "React", "Leaflet"],
+            tech: vec!["JavaScript", "React", "Leaflet"],
             url: "https://github.com/YeabsiraShimelis/world-wise",
             stars: 3,
         },
