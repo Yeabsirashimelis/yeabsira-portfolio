@@ -63,6 +63,13 @@ pub fn Projects() -> impl IntoView {
             url: "https://github.com/YeabsiraShimelis/Multithreaded-web-server-with-RUST",
             stars: 4,
         },
+        Project {
+            name: "oxide-paas",
+            description: "A Platform as a Service built in Rust. Includes agent management, database migrations, and deployment tooling — under active development.",
+            tech: vec!["Rust", "Cloud", "Infrastructure"],
+            url: "https://github.com/Yeabsirashimelis/oxide-paas",
+            stars: 0,
+        },
     ];
 
     let ts_projects = vec![
@@ -71,6 +78,13 @@ pub fn Projects() -> impl IntoView {
             description: "A TypeScript backend framework built directly on Node's HTTP module. Express-like DX with a cleaner ctx-based API, built-in middleware, WebSocket support, and rate limiting.",
             tech: vec!["TypeScript", "Node.js", "WebSocket"],
             url: "https://github.com/Yeabsirashimelis/oxide.js",
+            stars: 0,
+        },
+        Project {
+            name: "mock-oxide",
+            description: "A developer-first platform to design, deploy, and share mock API endpoints. Schema-based JSON responses, request validation, and OpenAPI 3.0 support.",
+            tech: vec!["TypeScript", "Next.js", "Prisma", "PostgreSQL"],
+            url: "https://github.com/Yeabsirashimelis/mock-oxide",
             stars: 0,
         },
         Project {
