@@ -50,6 +50,13 @@ pub fn Projects() -> impl IntoView {
             stars: 9,
         },
         Project {
+            name: "oxide-shell",
+            description: "A modern, POSIX-compliant command-line shell written in Rust. Interactive REPL with history, tab completion, I/O redirection, builtins, and cross-platform support.",
+            tech: vec!["Rust", "Systems", "CLI"],
+            url: "https://github.com/Yeabsirashimelis/oxide-shell",
+            stars: 1,
+        },
+        Project {
             name: "CPU Emulator",
             description: "A CHIP-8 emulator written in Rust with manual instruction loading. Dive deep into how CPUs actually execute instructions.",
             tech: vec!["Rust", "Emulation", "Low-level"],
