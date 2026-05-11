@@ -20,9 +20,18 @@ pub fn Contact() -> impl IntoView {
                         <span class="contact-icon">"gh"</span>
                         <span>"GitHub"</span>
                     </a>
-                    <a href="mailto:yeaborashimelis@gmail.com" class="contact-link">
+                    <a href="mailto:shimelisyeabsira123@gmail.com" class="contact-link">
                         <span class="contact-icon">"@"</span>
                         <span>"Email"</span>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/yeabsira-shimelis-4146a0385/"
+                        target="_blank"
+                        rel="noopener"
+                        class="contact-link"
+                    >
+                        <span class="contact-icon">"in"</span>
+                        <span>"LinkedIn"</span>
                     </a>
                 </div>
             </div>
