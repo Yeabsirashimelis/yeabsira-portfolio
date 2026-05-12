@@ -10,11 +10,11 @@ struct Project {
 
 fn render_project_card(project: Project) -> impl IntoView {
     view! {
-        <div class="project-card">
+        <a class="project-card" href=project.url target="_blank" rel="noopener">
             <div class="project-header">
                 <h3>{project.name}</h3>
                 <span class="project-stars">
-                    {format!("★ {}", project.stars)}
+                    {format!("* {}", project.stars)}
                 </span>
             </div>
             <p class="project-desc">{project.description}</p>
@@ -25,15 +25,7 @@ fn render_project_card(project: Project) -> impl IntoView {
                     .map(|t| view! { <span class="tech-tag">{t}</span> })
                     .collect_view()}
             </div>
-            <a
-                class="project-link"
-                href=project.url
-                target="_blank"
-                rel="noopener"
-            >
-                "View on GitHub →"
-            </a>
-        </div>
+        </a>
     }
 }
 
@@ -129,7 +121,7 @@ pub fn Projects() -> impl IntoView {
 
     view! {
         <section id="projects" class="projects">
-            <h2 class="section-title">"Projects"</h2>
+            <h2 class="section-title">"projects"</h2>
 
             <div class="project-tabs">
                 <button
@@ -137,25 +129,25 @@ pub fn Projects() -> impl IntoView {
                     class:active=move || active_tab.get() == "rust"
                     on:click=move |_| set_active_tab.set("rust")
                 >
-                    "🦀 Rust"
+                    "rust"
                 </button>
                 <button
                     class="tab-btn"
                     class:active=move || active_tab.get() == "typescript"
                     on:click=move |_| set_active_tab.set("typescript")
                 >
-                    "TS TypeScript"
+                    "typescript"
                 </button>
             </div>
 
             <div class="projects-grid" style:display=move || {
-                if active_tab.get() == "rust" { "grid" } else { "none" }
+                if active_tab.get() == "rust" { "flex" } else { "none" }
             }>
                 {rust_cards}
             </div>
 
             <div class="projects-grid" style:display=move || {
-                if active_tab.get() == "typescript" { "grid" } else { "none" }
+                if active_tab.get() == "typescript" { "flex" } else { "none" }
             }>
                 {ts_cards}
             </div>
@@ -167,7 +159,7 @@ pub fn Projects() -> impl IntoView {
                     rel="noopener"
                     class="btn btn-outline"
                 >
-                    "See All 57+ Repos →"
+                    "see_all_repos() // 57+"
                 </a>
             </div>
         </section>

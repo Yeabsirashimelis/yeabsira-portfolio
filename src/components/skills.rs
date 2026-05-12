@@ -10,32 +10,32 @@ struct SkillCategory {
 pub fn Skills() -> impl IntoView {
     let categories = vec![
         SkillCategory {
-            name: "Languages",
+            name: "languages",
             icon: ">>",
             items: vec!["Rust", "TypeScript", "Go", "JavaScript"],
         },
         SkillCategory {
-            name: "Backend",
+            name: "backend",
             icon: "[]",
             items: vec!["Node.js", "Express", "Actix-web", "Socket.IO"],
         },
         SkillCategory {
-            name: "Frontend",
+            name: "frontend",
             icon: "<>",
             items: vec!["React", "Next.js", "Leptos", "WASM"],
         },
         SkillCategory {
-            name: "Databases",
+            name: "databases",
             icon: "{}",
             items: vec!["PostgreSQL", "MongoDB", "MySQL", "Supabase"],
         },
         SkillCategory {
-            name: "DevOps & Cloud",
+            name: "devops",
             icon: "~/",
             items: vec!["Docker", "GitHub Actions", "Cloudflare", "Vercel"],
         },
         SkillCategory {
-            name: "Systems",
+            name: "systems",
             icon: "0x",
             items: vec!["Multithreading", "Networking", "HTTP Internals", "Emulation"],
         },
@@ -43,7 +43,7 @@ pub fn Skills() -> impl IntoView {
 
     view! {
         <section id="skills" class="skills">
-            <h2 class="section-title">"Skills"</h2>
+            <h2 class="section-title">"skills"</h2>
             <div class="skills-grid">
                 {categories
                     .into_iter()

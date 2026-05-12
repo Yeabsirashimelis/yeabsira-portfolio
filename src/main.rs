@@ -18,9 +18,13 @@ fn App() -> impl IntoView {
         <Navbar active_section=active_section set_active_section=set_active_section />
         <main>
             <Hero />
+            <hr class="section-divider" />
             <About />
+            <hr class="section-divider" />
             <Skills />
+            <hr class="section-divider" />
             <Projects />
+            <hr class="section-divider" />
             <Contact />
         </main>
         <footer class="footer">

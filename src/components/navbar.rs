@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use wasm_bindgen::prelude::*;
 
 #[component]
 pub fn Navbar(
@@ -8,6 +9,31 @@ pub fn Navbar(
     let (menu_open, set_menu_open) = signal(false);
 
     let sections = vec!["home", "about", "skills", "projects", "contact"];
+
+    // Scroll spy: update active section based on scroll position
+    let closure = Closure::<dyn Fn()>::new(move || {
+        let window = web_sys::window().unwrap();
+        let document = window.document().unwrap();
+        let scroll_y = window.scroll_y().unwrap_or(0.0);
+        let offset = 150.0;
+
+        let section_ids = ["contact", "projects", "skills", "about", "home"];
+        for id in section_ids {
+            if let Some(el) = document.get_element_by_id(id) {
+                let top = el.get_bounding_client_rect().top() + scroll_y - offset;
+                if scroll_y >= top {
+                    set_active_section.set(id.to_string());
+                    break;
+                }
+            }
+        }
+    });
+
+    let window = web_sys::window().unwrap();
+    window
+        .add_event_listener_with_callback("scroll", closure.as_ref().unchecked_ref())
+        .unwrap();
+    closure.forget();
 
     view! {
         <nav class="navbar">

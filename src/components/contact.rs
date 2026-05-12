@@ -4,11 +4,11 @@ use leptos::prelude::*;
 pub fn Contact() -> impl IntoView {
     view! {
         <section id="contact" class="contact">
-            <h2 class="section-title">"Get In Touch"</h2>
+            <h2 class="section-title">"contact"</h2>
             <div class="contact-content">
                 <p class="contact-text">
                     "I'm always open to new opportunities, collaborations, or just a good "
-                    "conversation about systems programming. Drop me a line!"
+                    "conversation about systems programming."
                 </p>
                 <div class="contact-links">
                     <a
