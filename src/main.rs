@@ -28,8 +28,7 @@ fn App() -> impl IntoView {
             <Contact />
         </main>
         <footer class="footer">
-            <p>"Built with Rust + Leptos + WebAssembly"</p>
-            <p class="footer-sub">"Compiled to WASM. No JavaScript frameworks were harmed."</p>
+            <p>"Yeabsira Shimelis"</p>
         </footer>
     }
 }
